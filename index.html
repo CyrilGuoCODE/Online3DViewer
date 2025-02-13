@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GWLY 3D模型预览器</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #container { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <!-- 使用最新版 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/online3dviewer@2.3.3/dist/online3dviewer.min.js"></script>
+    <script>
+        // 自动检测 URL 参数中的模型文件
+        const params = new URLSearchParams(window.location.search);
+        const modelFile = params.get('model') || 'model.glb';
+        
+        new Online3DViewer(
+            'container', 
+            modelFile, 
+            {
+                enableMeasurement: true,
+                defaultColor: '#CCCCCC',
+                backgroundColor: '#1A1A1A'
+            }
+        );
+    </script>
+</body>
+</html>
